@@ -104,6 +104,7 @@
     <Content Include="Recursos\js\bootstrap.min.js" />
     <Content Include="Recursos\js\ini.js" />
     <Content Include="Recursos\js\jquery-3.2.1.min.js" />
+    <Content Include="Recursos\js\jquery.anexgrid.min.js" />
     <Content Include="Recursos\js\jquery.form.js" />
     <Content Include="Recursos\js\jquery.js" />
     <Content Include="Recursos\js\jquery.validate.min.js" />
