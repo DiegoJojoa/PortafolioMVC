@@ -1,0 +1,68 @@
+﻿@model Experiencia
+@{
+    /**/
+
+    ViewBag.Title = "Crud";
+}
+
+<h2 class="page-header">
+    @(Model.id>0?Model.nombre:"Nuevo registro")
+</h2>
+
+<ol class="breadcrumb">
+    <li><a href="~/Admin/Experiencia?tipo=@Model.tipo"> @(Model.tipo==1 ? "Trabajos" : "Estudios previos") </a></li>
+    <li class="active">@(Model.id>0?Model.nombre:"Nuevo registro")</li>
+</ol>
+
+@using (Html.BeginForm("Guardar", "Experiencia", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.id)
+    @Html.HiddenFor(x => x.tipo)
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.nombre)
+        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.nombre, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.titulo)
+        @Html.TextBoxFor(x => x.titulo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.titulo, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.desde)
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </span>
+            @Html.TextBoxFor(x => x.desde, new { @class = "form-control datepicker" })
+        </div>
+        @Html.ValidationMessageFor(x => x.desde, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.hasta)
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </span>
+            @Html.TextBoxFor(x => x.hasta, new { @class = "form-control datepicker" })
+        </div>
+        @Html.ValidationMessageFor(x => x.hasta, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.descripcion)
+        @Html.TextBoxFor(x => x.descripcion, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.descripcion, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="text-right">
+        <button type="submit" data-ajax="true" class="btn btn-primary">Guardar</button>
+    </div>
+
+}
+
+
