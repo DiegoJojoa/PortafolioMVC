@@ -140,6 +140,7 @@
     <Content Include="Areas\Admin\Views\Testimonios\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Experiencia\Crud.cshtml" />
     <Content Include="Areas\Admin\Views\Habilidades\Crud.cshtml" />
+    <Content Include="Areas\Admin\Views\Testimonios\Crud.cshtml" />
     <None Include="packages.config" />
     <Content Include="Recursos\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Recursos\fonts\glyphicons-halflings-regular.ttf" />

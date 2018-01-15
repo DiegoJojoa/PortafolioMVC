@@ -1,0 +1,64 @@
+﻿
+@model Testimonio
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Crud";
+}
+
+<h2 class="page-header">
+    @(Model.id > 0 ? Model.nombre : "Nuevo registro")
+</h2>
+
+<ol class="breadcrumb">
+    <li><a href="~/Admin/Testimonios"> Testimonios </a></li>
+    <li class="active">@(Model.id > 0 ? Model.nombre : "Nuevo registro")</li>
+</ol>
+
+@using (Html.BeginForm("Guardar", "Testimonios", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.id)
+    @Html.HiddenFor(x => x.usuario_id)
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.nombre)
+        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", @readonly = "readoly" })
+        @Html.ValidationMessageFor(x => x.nombre, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ip)
+        @Html.TextBoxFor(x => x.ip, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ip, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.fecha)
+        @Html.TextBoxFor(x => x.fecha, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.fecha, null, new { @class = "label label-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.comentario)
+        @Html.TextAreaFor(x => x.comentario, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.comentario, null, new { @class = "label label-danger" })
+    </div>
+
+    <!--Tarea: Implementar un select para manejar los estados de un testimonio-->
+    <!--<select>
+        <option value="1">Pendiente</option>
+        <option value="2">Aprobado</option>
+        <option value="3">Rechazado</option>
+    </select>-->
+
+    <div class="text-right">
+        <button type="submit" data-ajax="true" class="btn btn-primary">Guardar</button>
+    </div>
+
+}
+
+
+
+
