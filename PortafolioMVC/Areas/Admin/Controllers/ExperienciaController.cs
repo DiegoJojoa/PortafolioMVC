@@ -23,7 +23,7 @@ namespace PortafolioMVC.Areas.Admin.Controllers
 
         public JsonResult Listar (AnexGRID grid, int tipo)
         {
-            return Json(experiencia.Listar(grid, tipo));
+            return Json(experiencia.Listar(grid, tipo, SessionHelper.GetUser()));
         }
 
         public ActionResult Crud (byte tipo=0, int id = 0)
@@ -58,13 +58,8 @@ namespace PortafolioMVC.Areas.Admin.Controllers
 
         public JsonResult Eliminar(int id)
         {
-           var rm = experiencia.Eliminar(id);
-
-            if (rm.response)
-            {
-                rm.href = "self"; //con el self el algoritmo de ajax me refresca a la misma página
-            }
-            return Json(rm);
+          
+            return Json(experiencia.Eliminar(id));
         }
     }
 }

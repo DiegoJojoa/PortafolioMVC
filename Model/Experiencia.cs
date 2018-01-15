@@ -108,7 +108,7 @@ namespace Model
             return rm;
         }
 
-        public AnexGRIDResponde Listar(AnexGRID grid, int tipo)
+        public AnexGRIDResponde Listar(AnexGRID grid, int tipo, int usuario_id)
         {
             try
             {
@@ -120,7 +120,7 @@ namespace Model
 
                     
 
-                    var query = ctx.Experiencia.Where(x => x.tipo == tipo);  //expresión lambda
+                    var query = ctx.Experiencia.Where(x => x.tipo == tipo).Where(x=>x.usuario_id==usuario_id);  //expresión lambda
                     //sintaxis de una expresión lambda (parameters)=>expression-or-statement-block
                     //ej: x=>x*x
 

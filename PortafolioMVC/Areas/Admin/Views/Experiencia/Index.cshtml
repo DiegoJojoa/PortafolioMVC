@@ -22,6 +22,7 @@
                     { leyenda: 'Titulo', columna: 'titulo', ordenable: true },
                     { leyenda: 'Desde', columna: 'hasta', ordenable: true },
                     { leyenda: 'Hasta', columna: 'hasta', ordenable: true },
+                    {style: 'width:60px'},
                 ],
 
                 modelo:[
@@ -35,7 +36,16 @@
                     },
                     { propiedad: 'titulo' },
                     {propiedad: 'desde' },
-                    {propiedad: 'hasta' },
+                    { propiedad: 'hasta' },
+                    {
+                        propiedad: 'nombre', formato: function (tr, obj, valor) {
+                            return anexGrid_link({
+                                href: '@Url.Content("~/Admin/Experiencia/eliminar/")' + obj.id,
+                                contenido: '<i class="fa fa-trash"></i>',
+                                class: 'btn btn-danger btn-xs btn-block btn-eliminar',
+                            });
+                        }
+                    },
                 ],
 
                 url: '@Url.Content("~/Admin/Experiencia/Listar?tipo="+tipo)',
@@ -45,5 +55,16 @@
                 columna_orden: 'DESC'
 
             });
+
+            agrid.tabla().on('click', 'btn-eliminar', function () {
+                if (!confirm('¿Está seguro de eliminar este registro?')) {
+                    return;
+                }
+
+                $.post($(this).attr('href'), function (r) {
+                    if (r.response) agrid.refrescar();
+                }, 'json')
+                return false;
+            })
         })
 </script>
