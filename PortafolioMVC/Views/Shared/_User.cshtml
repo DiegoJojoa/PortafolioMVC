@@ -1,4 +1,8 @@
 ﻿@model Usuario    
 
-<p>Diego Jojoa</p>
-<p>Pitalito - Huila</p>
+
+<p>@Model.nombre @Model.apellido</p>
+<p>Telefono: @Model.telefono</p>
+<p>Correo: <a href="mailto:@Model.email">@Model.email</a></p>
+<p>Dirección: <br />
+    @Model.direccion - @Model.ciudad</p>

@@ -1,6 +1,67 @@
-﻿@{
+﻿@model Usuario
+
+@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+@if (Model.Experiencia.Count > 0)
+{
+
+    <h3>Empleos</h3>
+    <p>
+        @foreach (var e in Model.Experiencia.Where(x=>x.tipo==1).ToList())
+        {
+            @e.nombre <br />
+            @e.desde <br />
+            @e.hasta <br />
+            @e.descripcion
+
+        }
+    </p>
+}
+
+
+@if (Model.Habilidad.Count > 0)
+{
+
+    <h3>Habilidades</h3>
+    <p>
+        @foreach (var e in Model.Habilidad)
+        {
+            @e.nombre <br />
+            @e.dominio
+        }
+    </p>
+}
+
+@if (Model.Experiencia.Count > 0)
+{
+
+    <h3>Empleos</h3>
+    <p>
+        @foreach (var e in Model.Experiencia.Where(x => x.tipo == 2).ToList())
+        {
+            @e.nombre <br />
+            @e.desde <br />
+            @e.hasta <br />
+            @e.descripcion
+        }
+    </p>
+}
+
+
+@if (Model.Testimonio.Count > 0)
+{
+
+    <h3>Experiencia</h3>
+    <p>
+        @foreach (var e in Model.Testimonio)
+        {
+            @e.nombre <br />
+            @e.comentario <br />
+            @e.fecha <br />
+        }
+    </p>
+}

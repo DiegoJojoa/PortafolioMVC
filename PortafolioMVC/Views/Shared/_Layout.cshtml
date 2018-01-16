@@ -1,6 +1,7 @@
 ﻿
 @{
-    Layout = null;
+   var usuario_id= PortafolioMVC.App_Start.FronOfficeStartUp.UsuarioVisualizando();
+    var usuario = new Usuario().Obtener(usuario_id);
 }
 
 <!DOCTYPE html>
@@ -13,11 +14,11 @@
 <body>
     <div>
         <!--Html.Partial es para cargar una vista sobre el layout, en este caso datos del usuario-->
-        @Html.Partial("~/Views/Shared/_User.cshtml")
+        @Html.Partial("~/Views/Shared/_User.cshtml",usuario)
     </div>
 
     <div>
-        @Html.Partial("~/Views/Shared/MenuAdicional.cshtml")
+        @Html.Partial("~/Views/Shared/MenuAdicional.cshtml", usuario)
         @RenderBody();
     </div>
 </body>
