@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <!--Html.Partial es para cargar una vista sobre el layout, en este caso datos del usuario-->
+        @Html.Partial("~/Views/Shared/_User.cshtml")
+    </div>
+
+    <div>
+        @Html.Partial("~/Views/Shared/MenuAdicional.cshtml")
+        @RenderBody();
+    </div>
+</body>
+</html>
