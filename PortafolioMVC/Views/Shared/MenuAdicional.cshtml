@@ -1,22 +1,21 @@
 ﻿@model Usuario
 
 
-<div class="options-container-fixed">
+<div class="options-container-fixed hidden-print">
     <div class="options">
 
         <div class="row">
 
             <div class="col-sm-12">
-                <a href="#" class="btn btn-danger">
+                <a href="~/Default/ExportarPDF" target="_blank" class="btn btn-danger">
                     <i class="fa fa-file-pdf-o"></i><span class="hidden-xs hidden-sm">Descargar en PDF</span>
                 </a>
 
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" onclick="window.print()">
                     <i class="fa fa-print"></i><span class="hidden-xs hidden-sm">Imprimir</span>
                 </button>
 
-
-                <button class="btn btn-default" data-toggle="modal" data-target="">
+                <button class="btn btn-default" data-toggle="modal" data-target="#nContacto">
                     <i class="fa fa-envelope-o"></i><span class="hidden-xs hidden-sm">Contactar</span>
                 </button>
 
@@ -35,13 +34,11 @@
                 }
                
             </div>
-
         </div>
-
     </div>
-
-
 </div>
+
+@Html.Partial("~/Views/Shared/_Contacto.cshtml",new PortafolioMVC.ViewsModels.ContactoViewModel())
 
 
 

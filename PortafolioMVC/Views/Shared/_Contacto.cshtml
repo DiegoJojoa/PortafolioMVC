@@ -1,0 +1,54 @@
+﻿@model PortafolioMVC.ViewsModels.ContactoViewModel
+
+<!--Modal-->
+<div id="nContacto" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            @using (Html.BeginForm("EnviarCorreo", "Default", FormMethod.Post))
+            {
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                        <span aria-hidden="true" &times;></span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.nombre)
+                        @Html.TextBoxFor(x => x.nombre, new { @class = "form-control", placeholder = "Ingrese su nombre" })
+                        @Html.ValidationMessageFor(x => x.nombre, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.correo)
+                        @Html.TextBoxFor(x => x.correo, new { @class = "form-control", placeholder = "Ingrese su correo" })
+                        @Html.ValidationMessageFor(x => x.correo, null, new { @class = "label label-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.nombre)
+                        @Html.TextAreaFor(x => x.nombre, new { @class = "form-control", placeholder = "Ingrese su mensaje" })
+                        @Html.ValidationMessageFor(x => x.mensaje, null, new { @class = "label label-danger" })
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" data-reset="true" data-ajax="true" class="btn btn-default btn-lg">Enviar</button>
+                </div>
+
+            }
+
+        </div><!--/modal content-->
+    </div><!--/modal dialog-->
+</div><!--/fin modal-->
+
+<script>    
+
+
+    function CerrarContacto() {
+        $("#nContacto").modal('hide');
+    }
+</script>
